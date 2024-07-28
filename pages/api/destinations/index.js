@@ -1,0 +1,1 @@
+//GET /destinations endpoint for travel destinations. To help the user facilitate searching for a destination.  (Home page)
