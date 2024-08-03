@@ -9,15 +9,30 @@ export async function addToList(listName, user, destinationId) {
     return addedDestination
 }
 
+async function getDestinationFromAPI (destinationId) {
+  //To figure out what the API, making the call to the API and getting the data.
+       return {
+            title: "Trinidad Beach",
+            summary: "A beautiful beach in Barbados",
+            image: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?cs=srgb&dl=pexels-asadphoto-457882.jpg&fm=jpg"
+        }
+}
+
 export async function getDestinations(listName, user){
     //Reading from the database the destinations that have been saved to a database by a specific user. 
         await dbConnect()
-        const destinations= await List.find({
+        const destinationsFromDb= await List.find({
           list:listName,
           user:user._id,
         }
         ).lean()
-        if (!destinations) return []
+        if (!destinationsFromDb) return []
+        const destinations =[]
+        //Using for of loop because of awaiting promise
+        for(const destination of destinationsFromDb) {
+           destinations.push(await getDestinationFromAPI (destination.destinationId))
+        }
+        // console.log (destinations)
         return destinations
 }
 

@@ -11,6 +11,12 @@ export default function Header(props) {
           <p>
             <Link href="/">Home</Link>
           </p>
+          <p>
+            <Link href="/bucketList">Bucket List</Link>
+          </p>
+          <p>
+            <Link href="/visited">Visited</Link>
+          </p>
           <div className={styles.container}>
             <p>Welcome, {props.username}!</p>
             <p onClick={logout} style={{ cursor: "pointer" }}>

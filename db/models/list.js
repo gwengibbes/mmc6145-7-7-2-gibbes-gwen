@@ -1,6 +1,7 @@
 import { Schema, model, models } from 'mongoose'
 import bcrypt from 'bcrypt'
 
+//Store what the user has added to their respectives lists- bucket list or visited list
 const ListSchema = new Schema({
   user: {
     type: String,
