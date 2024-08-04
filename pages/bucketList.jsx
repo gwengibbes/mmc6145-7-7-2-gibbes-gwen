@@ -1,4 +1,3 @@
-
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -8,23 +7,12 @@ import sessionOptions from "../config/session";
 import Destination from '../components/destination';
 import { getDestinations,addToList } from '../db/controllers/list';
 
+
 /**
- * get the bucket list items for the specified user.
+ * Get the bucket list items for the specified user.
  */
 async function getBucketListItems({user}) {
     return await getDestinations("bucket", user)
-    // return[
-    //     {
-    //         title: "Barbados Beach",
-    //         summary: "A beautiful beach in Barbados",
-    //         image: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?cs=srgb&dl=pexels-asadphoto-457882.jpg&fm=jpg"
-    //     },
-    //     {
-    //         title: "Trinidad Beach",
-    //         summary: "A beautiful beach in Barbados",
-    //         image: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?cs=srgb&dl=pexels-asadphoto-457882.jpg&fm=jpg"
-    //     }
-    // ]
 }
 export const getServerSideProps = withIronSessionSsr(
 
@@ -32,12 +20,10 @@ export const getServerSideProps = withIronSessionSsr(
       const user = req.session.user;
       const props = {};
       if (user) {
-        //addToList("bucket", user, "barbados")
         props.user = req.session.user;
         props.isLoggedIn = true;
-        //setting the destinations for the user on the component property
+        //Setting the destinations for the user on the component property
         props.destinations = await getBucketListItems({user})
-        console.log ("destination on props:", props.destinations)//
       } else {
         props.isLoggedIn = false;
       }
@@ -46,10 +32,10 @@ export const getServerSideProps = withIronSessionSsr(
     sessionOptions
   );
 
-export default function bucketList(props) {
+export default function BucketList(props) {
     return(
         <>
-{/* render the header property to show the head on the bucket list page */}
+{/* Render the header property to show the head on the bucket list page */}
         <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username}/>
 <main>
 <div className={styles.container}>

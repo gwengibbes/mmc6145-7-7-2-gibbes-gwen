@@ -1,6 +1,8 @@
 import db from '../../../db/'
+import { withIronSessionApiRoute } from "iron-session/next";
+import sessionOptions from "../../../config/session"
 
-//This handler runs for /lists/:listName/destinations
+//This handler runs for /list/:listName
 export default withIronSessionApiRoute(
     async function handler(req, res) {
         // User info can be accessed with req.session
@@ -55,4 +57,4 @@ export default withIronSessionApiRoute(
         }
         //Respond with 404 for all other requests
         return res.status(404).end()
-    })
+    },sessionOptions)
