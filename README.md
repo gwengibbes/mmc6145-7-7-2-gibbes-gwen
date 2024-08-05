@@ -1,3 +1,20 @@
+# About the Application
+The application will be a travel website that is intended for travelers to help them with planning their trips. 
+The purpose of this application is for people who are interested in traveling and are unsure about places to visit upon arrival.
+It connects the travelers with information about travel destinations. 
+Users will be able to create an account, log in and see various activities that are available in specific destinations. 
+
+The technical features of the application include an external API, https://developers.amadeus.com/get-started/get-started-with-self-service-apis-335,  pages or views of the application, and the use of MongoDB to store the user details and the activities that the users would like to do at a specific destination. The Environmental Variables necessary will be the key for the API and the session key. The pages or views that the application will contain will be a Home page, a Bucket List page, a Visited page and a Details Page. 
+
+<img width="1085" alt="Mockup1_TravelWebsite_MMC6145" src="https://github.com/user-attachments/assets/490d2434-aed5-4119-abc5-76b1092e393c">
+
+The wireframe above shows the general placement that was planned out for this website.
+
+<img width="1087" alt="Mockup2_TravelWebsite_MMC6145" src="https://github.com/user-attachments/assets/0073fb13-7eab-4822-863f-2e5fdda0d760">
+
+The mockup above shows the general layout and design that was intended for the website. 
+The intended look and feel of the website was meant to follow, roughly, the view shown above. 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
