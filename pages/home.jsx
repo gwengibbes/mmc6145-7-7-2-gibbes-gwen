@@ -5,8 +5,8 @@ import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 import Destination from '../components/destination';
 
-export default function Home2() {
-  const [selectedLocation, setSelectedLocation]=useState("trinidad")
+export default function Home2(props) {
+  const [selectedLocation, setSelectedLocation]=useState(props.locations[0].id)
   const [activities, setActivities]=useState([])
 
   async function performSearch (ev){
@@ -74,8 +74,7 @@ export default function Home2() {
           <Link href="/search" className="button">Search For a Destination</Link>
         </section>
         <select onChange={ev => {locationChanged(ev)}}>
-          <option value="trinidad">Trinidad</option>
-          <option value="barbados">Barbados</option>
+          {props.locations.map(location =><option key={location.id} value={location.id}>{location.title}</option>)}
         </select>
         <button onClick={ev => {performSearch(ev)}}>Search</button>
         <ul>

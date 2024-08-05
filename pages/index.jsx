@@ -8,11 +8,13 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import useLogout from "../hooks/useLogout";
 import Home2 from "./home";
+import searchableLocations from '../config/searchable-locations'
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
     const user = req.session.user;
     const props = {};
+    props.locations=searchableLocations;
     if (user) {
       props.user = req.session.user;
       props.isLoggedIn = true;
@@ -49,7 +51,7 @@ export default function Home(props) {
             {!props.isLoggedIn && " Not"} Logged In
           </code>
         </p>
-        <Home2/>
+        <Home2 locations={props.locations}/>
 
         <div className={styles.grid}>
           {props.isLoggedIn ? (
