@@ -1,3 +1,4 @@
+//List of searchable locations, coordinates, etc. 
 export default [{
     id: 'london',
     title: 'London, England',

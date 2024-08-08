@@ -31,7 +31,13 @@ export async function getDestinations(listName, user){
 export async function removeDestination(listName, user, destinationId){
     //Remove from the database the specified destination by a specific user. 
         await dbConnect()
-        const destination = await List.remove({
+        console.log({
+          list:listName,
+          user:user._id,
+          destinationId,
+        })
+        //Used deleteMany to ensure that any duplicates are also removed. 
+        const destination = await List.deleteMany({
           list:listName,
           user:user._id,
           destinationId,

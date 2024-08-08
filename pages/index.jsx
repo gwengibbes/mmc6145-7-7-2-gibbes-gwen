@@ -14,6 +14,7 @@ export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
     const user = req.session.user;
     const props = {};
+    //This will display the list of countries the user can choose to search. 
     props.locations=searchableLocations;
     if (user) {
       props.user = req.session.user;
@@ -41,15 +42,13 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Travel Made Easy!</a>
+          Welcome to Travel Made Easy!
         </h1>
 
         <p className={styles.description}>
           <br />
           Status:{" "}
-          <code className={styles.code}>
             {!props.isLoggedIn && " Not"} Logged In
-          </code>
         </p>
         <Home2 locations={props.locations}/>
 
@@ -74,16 +73,7 @@ export default function Home(props) {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+       Travel Made Easy 
       </footer>
     </div>
   );
