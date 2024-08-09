@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import { useState } from 'react'
-import Destination from '../components/destination';
+import Destination from '.';
 import {Button, Row, Col, Container} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-export default function Home2(props) {
+export default function DestinationSearch(props) {
   const [selectedLocation, setSelectedLocation]=useState(props.locations[0].id)
   const [activities, setActivities]=useState([])
   const [isLoadingResults, setIsLoadingResults]=useState(false)
@@ -63,7 +63,7 @@ export default function Home2(props) {
   let instructions 
   if (activities.length===0){
     instructions =  <section className={styles.jumbo}>
-        <p>Why don't you go ahead and find a destination on your bucket list?</p>
+        <p>Why don&apos;t you go ahead and find a destination on your bucket list?</p>
       <p>Find a destination. Research it. Start your journey here.<em></em></p>
         <Image src="/images/beach.jpg" className={styles.foodImg} alt="white sandy beach" width="450" height="200"/>
       </section>

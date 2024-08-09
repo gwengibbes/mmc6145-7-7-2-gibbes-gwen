@@ -1,5 +1,5 @@
+import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from "../components/header";
 import { withIronSessionSsr } from "iron-session/next";
@@ -52,6 +52,11 @@ export default function BucketList(props) {
   }
     return(
         <>
+        <Head>
+        <title>Your Bucket List | Travel Made Easy</title>
+        <meta name="description" content="Places You Want to Visit" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 {/* Render the header property to show the head on the bucket list page */}
         <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username}/>
 <main>
@@ -73,7 +78,7 @@ export default function BucketList(props) {
   </section>
 </div>
 <section className={styles.goSearch}>
-  <p>Why don't you go ahead and find a destination on your bucket list?</p>
+  <p>Why don&apos;t you go ahead and find a destination on your bucket list?</p>
   <Link href="/" className="button">Search For a Destination</Link>
 </section>
 </main>

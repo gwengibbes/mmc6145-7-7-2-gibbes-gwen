@@ -1,5 +1,5 @@
+import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from "../components/header";
 import { withIronSessionSsr } from "iron-session/next";
@@ -53,6 +53,11 @@ export default function VisitedList(props) {
   }
     return(
         <>
+        <Head>
+        <title>Your Visited List | Travel Made Easy</title>
+        <meta name="description" content="Places You Have Visited" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 {/* Render the header property to show the head on the visited list page */}
         <Header isLoggedIn={props.isLoggedIn} username={props?.user?.username}/>
 <main>
@@ -74,7 +79,7 @@ export default function VisitedList(props) {
   </section>
 </div>
 <section className={styles.goSearch}>
-  <p>Why don't you go ahead and save a destination to your visited list?</p>
+  <p>Why don&apos;t you go ahead and save a destination to your visited list?</p>
   <Link href="/" className="button">Search For a Destination</Link>
 </section>
 </main>
